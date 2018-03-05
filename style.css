@@ -1,0 +1,70 @@
+/*
+ Theme Name: ulfben Seventeen
+ Description: A child-theme for Twenty Seventeen.
+ Author: Ulf Benjaminsson
+ Author URI: http://www.ulfbenjaminsson.com
+ Template: twentyseventeen
+ Version: 1
+ */
+
+ /*round those corners*/
+.entry-content img{
+	border-radius: 10px; 
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/*highlight the relevant tags*/
+.current-tag {
+    font-weight: bold;
+}
+
+/*cute the wasted air above content*/
+.site-content {
+    padding: 2.5em 0 0;
+}
+
+.byline{
+	display: none !important;
+}
+
+/*custom social links menu*/
+.menu-social-links-menu-container .icon {
+  	height: 16px; 
+    top: 12px;
+    width: 16px;
+    vertical-align: top;
+}
+
+.widget-area .menu-social-links-menu-container ul li {
+  display: inline-block;
+  font-size: 1rem;
+  border: none;
+  padding: 0;
+}
+
+.widget-area .menu-social-links-menu-container ul li a {
+  background-color: #767676;
+  border-radius: 40px;
+  color: #fff;
+  display: inline-block;
+  height: 40px;
+  margin: 0 1em 0.5em 0;
+  text-align: center;
+  width: 40px;
+}
+
+.widget-area .menu-social-links-menu-container ul li a:focus,
+.widget-area .menu-social-links-menu-container ul li a:hover {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  box-shadow: none;
+}
+
+.widget_search {
+  clear: both;
+}
+
+.widget-area .social-navigation {
+  width: 100%;
+}
