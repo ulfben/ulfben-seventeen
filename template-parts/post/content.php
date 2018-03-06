@@ -2,6 +2,8 @@
 /**
  * Template part for displaying posts
  * removes featured image 
+ * add tags and category meta to all posts
+ * force footer (with comments-link)
  */
 if(!function_exists('categories_and_tags')) {
 	function categories_and_tags(){
@@ -78,9 +80,11 @@ if(!function_exists('categories_and_tags')) {
 		?>
 	</div><!-- .entry-content -->
 
-	<?php
-	if ( is_single() ) {
-		twentyseventeen_entry_footer();
+	<?php 
+	if ( true ) { //ulfben: always show footer
+		//twentyseventeen_entry_footer(); //I was unable to replace the original with child theme, so custom function.php it is...
+		//original is in /inc/template-tags.php
+		ulfbenseventeen_entry_footer();
 	}
 	?>
 

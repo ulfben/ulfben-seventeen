@@ -52,6 +52,44 @@ function tag_cloud_current_tag_highlight( $return ) {
 	return $return;
 }
 
+//used instead of twentyseventeen_entry_footer in /inc/template-tags.php
+//adds comment-link to the entry footers.
+function ulfbenseventeen_entry_footer() {
+	/* translators: used between list items, there is a space after the comma */
+	$separate_meta = __( ', ', 'twentyseventeen' );
+
+	// Get Categories for posts.
+	$categories_list = get_the_category_list( $separate_meta );
+
+	// Get Tags for posts.
+	$tags_list = get_the_tag_list( '', $separate_meta );
+
+	// We don't want to output .entry-footer if it will be empty, so make sure its not.
+	if ( ( ( twentyseventeen_categorized_blog() && $categories_list ) || $tags_list ) || get_edit_post_link() ) {
+		echo '<footer class="entry-footer">';
+			if ( 'post' === get_post_type() ) {
+				if ( ( $categories_list && twentyseventeen_categorized_blog() ) || $tags_list ) {
+					echo '<span class="cat-tags-links">';
+						// Make sure there's more than one category before displaying.
+						if ( $categories_list && twentyseventeen_categorized_blog() ) {
+							echo '<span class="cat-links">' . twentyseventeen_get_svg( array( 'icon' => 'folder-open' ) ) . '<span class="screen-reader-text">' . __( 'Categories', 'twentyseventeen' ) . '</span>' . $categories_list . '</span>';
+						}
+						if ( $tags_list && ! is_wp_error( $tags_list ) ) {
+							echo '<span class="tags-links">' . twentyseventeen_get_svg( array( 'icon' => 'hashtag' ) ) . '<span class="screen-reader-text">' . __( 'Tags', 'twentyseventeen' ) . '</span>' . $tags_list . '</span>';
+						}
+					echo '</span>';
+				}
+			}
+			if(!is_single()){
+				echo '<span class="comments-popup-link">';
+					comments_popup_link();
+				echo '</span>';
+			}						
+		echo '</footer> <!-- .entry-footer -->';
+	}
+}
+
 //SVG icons functions and filters.
 include_once( get_stylesheet_directory() . '/inc/social-menu-links.php' );
+
 ?>
